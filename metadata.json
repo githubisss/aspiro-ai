@@ -1,0 +1,5 @@
+{
+  "name": "Aspiro",
+  "description": "A futuristic AI-powered career development platform with a holographic assistant, personalized roadmaps, and voice-based interview simulation.",
+  "requestFramePermissions": ["microphone"]
+}

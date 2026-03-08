@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  
+  --color-aspiro-blue: #00d2ff;
+  --color-aspiro-cyan: #3a7bd5;
+  --color-aspiro-purple: #8e2de2;
+  --color-aspiro-dark: #050b18;
+}
+
+@layer base {
+  body {
+    @apply bg-[#050b18] text-white font-sans selection:bg-aspiro-blue/30;
+    background-image: 
+      radial-gradient(circle at 50% -20%, rgba(0, 210, 255, 0.15), transparent),
+      radial-gradient(circle at 0% 100%, rgba(142, 45, 226, 0.1), transparent),
+      radial-gradient(circle at 100% 100%, rgba(58, 123, 213, 0.1), transparent);
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-white/5 backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.3)];
+  }
+  
+  .hologram-glow {
+    @apply shadow-[0_0_20px_rgba(0,210,255,0.3)] border-aspiro-blue/30;
+  }
+  
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-aspiro-blue via-aspiro-cyan to-aspiro-purple;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; filter: blur(10px); }
+  50% { opacity: 1; filter: blur(15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
